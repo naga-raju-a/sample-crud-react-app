@@ -62,68 +62,82 @@ namespace Sample.Web.API.Controllers
             return employee;
         }
 
-        // PUT: api/Employees/5
+         // PUT: api/Employees/5
       
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployee(string id, Employee employee)
-        {
-            if (id != employee.Id)
-            {
-                return BadRequest();
-            }
+ [HttpPut("{id}")]
+ public async Task<IActionResult> PutEmployee(string id, Employee employee)
+ {
+     if (id != employee.Id)
+     {
+         return BadRequest();
+     }
 
-            _context.Entry(employee).State = EntityState.Modified;
+     _context.Entry(employee).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EmployeeExists(id, null))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+     try
+     {
+         await _context.SaveChangesAsync();
+         return CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, new
+         {
+             status = "success",
+             message = "Employee updated successfully.",
+             data = employee
+         });
+     }
+     catch (DbUpdateConcurrencyException ex)
+     {
+         return StatusCode(StatusCodes.Status500InternalServerError, new
+         {
+             status = "error",
+             message = "An error occurred while updating employee data.",
+             details = ex.Message,
+             data = employee
+         });
+     }
 
-            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
-        }
+    
+ }
 
-        // POST: api/Employees       
-        [HttpPost]
-        public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
-        {
-            if (EmployeeExists(null, employee))
-            {
-                return Conflict();
-            }
-            else
-            {
-                employee.Id = GenerateEmployeeId();
-                _context.Employee.Add(employee);
-            }
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (EmployeeExists(null, employee))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+ // POST: api/Employees     
+ [HttpPost]
+ public async Task<IActionResult> PostEmployee(Employee employee)
+ {          
+     
+     if (EmployeeExists(null, employee))
+     {
+         return Ok(new 
+         {
+             data = employee,
+             status = "conflict",
+             message = "Employee with the same email already exists." 
+         });
+     }
 
-            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
-        }
+     try
+     {
+         employee.Id = GenerateEmployeeId();
+         _context.Employee.Add(employee);
+         await _context.SaveChangesAsync();
+
+         return CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, new
+         {
+             status = "success",
+             message = "Employee added successfully.",
+             data = employee
+         });
+     }
+     catch (DbUpdateException ex)
+     {
+         return StatusCode(StatusCodes.Status500InternalServerError, new
+         {
+             status = "error",
+             message = "An error occurred while saving employee data.",
+             details = ex.Message,
+             data = employee
+         });
+     }
+ }
+
 
         // DELETE: api/Employees/5
         [HttpDelete("{id}")]
