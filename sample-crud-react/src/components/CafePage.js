@@ -161,7 +161,7 @@ const [searchValue, setSearchValue] = useState('');
         open={confirmDialog}
         onClose={() => setConfirmDialog(false)}
         onConfirm={handleDelete}
-        title="Delete Café"
+        title="Delete Cafe"
         message="Are you sure you want to delete this cafe?"
       />
       <CafeDialog
