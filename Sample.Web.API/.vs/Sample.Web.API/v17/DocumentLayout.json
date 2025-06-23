@@ -1,0 +1,246 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|c:\\users\\p1350821\\documents\\2025\\sample_code\\sample.web.api\\sample.web.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|solutionrelative:sample.web.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|c:\\users\\p1350821\\documents\\2025\\sample_code\\sample.web.api\\sample.web.api\\models\\employee .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|solutionrelative:sample.web.api\\models\\employee .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|c:\\users\\p1350821\\documents\\2025\\sample_code\\sample.web.api\\sample.web.api\\controllers\\cafescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|solutionrelative:sample.web.api\\controllers\\cafescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|c:\\users\\p1350821\\documents\\2025\\sample_code\\sample.web.api\\sample.web.api\\models\\cafe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|solutionrelative:sample.web.api\\models\\cafe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|c:\\users\\p1350821\\documents\\2025\\sample_code\\sample.web.api\\sample.web.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|solutionrelative:sample.web.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|c:\\users\\p1350821\\documents\\2025\\sample_code\\sample.web.api\\sample.web.api\\services\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|solutionrelative:sample.web.api\\services\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|c:\\users\\p1350821\\documents\\2025\\sample_code\\sample.web.api\\sample.web.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4F6B1E11-CB81-4F8F-8D90-2A4056D72F47}|Sample.Web.API\\Sample.Web.API.csproj|solutionrelative:sample.web.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 25,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:145:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:148:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:149:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:150:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:151:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CafesController.cs",
+              "DocumentMoniker": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Controllers\\CafesController.cs",
+              "RelativeDocumentMoniker": "Sample.Web.API\\Controllers\\CafesController.cs",
+              "ToolTip": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Controllers\\CafesController.cs",
+              "RelativeToolTip": "Sample.Web.API\\Controllers\\CafesController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAIAwwCUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:35:58.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "Sample.Web.API\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "Sample.Web.API\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAWwGEAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:33:56.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Sample.Web.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\appsettings.json",
+              "RelativeToolTip": "Sample.Web.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-19T09:28:51.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Services\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Sample.Web.API\\Services\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Services\\AppDbContext.cs",
+              "RelativeToolTip": "Sample.Web.API\\Services\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:18:55.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Cafe.cs",
+              "DocumentMoniker": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Models\\Cafe.cs",
+              "RelativeDocumentMoniker": "Sample.Web.API\\Models\\Cafe.cs",
+              "ToolTip": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Models\\Cafe.cs",
+              "RelativeToolTip": "Sample.Web.API\\Models\\Cafe.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAIAwwBkAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:10:24.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Employee .cs",
+              "DocumentMoniker": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Models\\Employee .cs",
+              "RelativeDocumentMoniker": "Sample.Web.API\\Models\\Employee .cs",
+              "ToolTip": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Models\\Employee .cs",
+              "RelativeToolTip": "Sample.Web.API\\Models\\Employee .cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAApwB8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:10:12.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Program.cs",
+              "RelativeDocumentMoniker": "Sample.Web.API\\Program.cs",
+              "ToolTip": "C:\\Users\\p1350821\\Documents\\2025\\Sample_Code\\Sample.Web.API\\Sample.Web.API\\Program.cs",
+              "RelativeToolTip": "Sample.Web.API\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:02:02.884Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1144,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
