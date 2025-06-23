@@ -53,11 +53,11 @@ function CafeDialog({ open, onClose, formData = {}, onSave }) {
     try {
     
       const res = await saveCafe(inputForm);
-      if (res?.data) {
+      if (res?.data.status==='success') {        
         onSave?.();
         onClose();
-      } else {
-        alert('Failed to save cafe.');
+      }else {
+         alert(res?.data.message);
       }
     } catch (error) {
       console.error(error);
