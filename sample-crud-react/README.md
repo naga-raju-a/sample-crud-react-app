@@ -8,17 +8,20 @@ project/
 ├── components/
 │   ├── CafePage.js
 │   ├── EmployeePage.js
-│   ├── AddEditCafePage.js
-│   ├── AddEditEmployeePage.js
-│   ├── CafeTable.js
-│   └── EmployeeTable.js
+│   └── common/
+│		├── EmployeeDialog.js
+│		├── CafeDailog.js
+│		├── ConfirmDailog.js
+│		└── ReusableTextField.js
 │
 ├── services/
-│   ├── cafeService.js
-│   └── employeeService.js
+│    └── app.js
 │
+├── util/
+│    └── validation.js
 ├── App.js
 └── index.js
+
 
 
 ## Creating a new React app
