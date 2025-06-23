@@ -57,45 +57,65 @@ namespace Sample.Web.API.Controllers
             return cafe;
         }
 
-        // PUT: api/Cafes/5     
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCafe(Guid id, Cafe cafe)
-        {
-            if (id != cafe.Id)
-            {
-                return BadRequest();
-            }
+         // PUT: api/Cafes/5     
+ [HttpPut("{id}")]
+ public async Task<IActionResult> PutCafe(Guid id, Cafe cafe)
+ {
+     if (id != cafe.Id)
+     {
+         return BadRequest();
+     }
 
-            _context.Entry(cafe).State = EntityState.Modified;
+     _context.Entry(cafe).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CafeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+     try
+     {
+         await _context.SaveChangesAsync();
+         return CreatedAtAction(nameof(GetCafe), new { id = cafe.Id }, new
+         {
+             status = "success",
+             message = "Cafe updated successfully.",
+             data = cafe
+         });
+     }
+     catch (DbUpdateConcurrencyException ex)
+     {
+         return StatusCode(StatusCodes.Status500InternalServerError, new
+         {
+             status = "error",
+             message = "An error occurred while updating cafe data.",
+             details = ex.Message,
+             data = cafe
+         });
+     }
+ }
 
-            return CreatedAtAction("GetCafe", new { id = cafe.Id }, cafe);
-        }
+ // POST: api/Cafes       
+ [HttpPost]
+ public async Task<ActionResult<Cafe>> PostCafe(Cafe cafe)
+ {
+     try
+     {
+         _context.Cafe.Add(cafe);
+         await _context.SaveChangesAsync();
+         return CreatedAtAction(nameof(GetCafe), new { id = cafe.Id }, new
+         {
+             status = "success",
+             message = "Cafe updated successfully.",
+             data = cafe
+         });
+     }
+     catch (DbUpdateConcurrencyException ex) {
+         return StatusCode(StatusCodes.Status500InternalServerError, new
+         {
+             status = "error",
+             message = "An error occurred while saving cafe data.",
+             details = ex.Message,
+             data = cafe
+         });
+     }
+ }
 
-        // POST: api/Cafes       
-        [HttpPost]
-        public async Task<ActionResult<Cafe>> PostCafe(Cafe cafe)
-        {
-            _context.Cafe.Add(cafe);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetCafe", new { id = cafe.Id }, cafe);
-        }
 
         // DELETE: api/Cafes/5
         [HttpDelete("{id}")]
