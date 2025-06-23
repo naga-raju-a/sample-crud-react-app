@@ -81,11 +81,11 @@ function EmployeeDialog({ open, onClose, formData = {}, onSave }) {
 
     try {          
       const res = await saveEmployee(inputForm);
-      if (res?.data) {        
+      if (res?.data.status==='success') {        
         onSave?.();
         onClose();
-      } else {
-        alert('Failed to save employee.');
+      }else {
+         alert(res?.data.message);
       }
     } catch (error) {
       console.error(error);
