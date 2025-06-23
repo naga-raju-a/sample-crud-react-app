@@ -9,7 +9,7 @@ This is a full-stack web application built with:
 
 ##  Features
 
-- Modern UI with React + Material UI (optional)
+- Material UI with React
 - RESTful API with .NET Core
 - Entity Framework Core with InMemory provider
 - CRUD operations demonstration
