@@ -42,7 +42,7 @@ namespace Sample.Web.API.Controllers
                 e.EmploymentDate,
                 CafeName = !string.IsNullOrEmpty(e.CafeId) ? cafes.FirstOrDefault(c => c.Id == Guid.Parse((e.CafeId)))?.Name : "",
                 DaysWorked = e.EmploymentDate.HasValue
-                        ? (todaySGT - e.EmploymentDate.Value.Date).Days
+                         ? ((todaySGT - e.EmploymentDate.Value.Date).Days > 0 ? (todaySGT - e.EmploymentDate.Value.Date).Days : 0)
                         : 0
             });
             return Ok(result);
