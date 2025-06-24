@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { AgGridReact } from 'ag-grid-react';
 import { useLocation } from 'react-router-dom';
-
+import NavigationTabs from './common/NavigationTabs'
 import ConfirmDialog from './common/ConfirmDialog';
 import EmployeeDialog from './common/EmployeeDialog';
 import { getEmployees, deleteEmployee } from '../services/api';
@@ -120,8 +120,8 @@ function EmployeePage() {
 
   return (
     <Box>
+     <NavigationTabs></NavigationTabs> 
       <Typography variant="h4" gutterBottom>Employees</Typography>
-
       <Box display="flex" justifyContent="space-between" alignItems="center" gap={2} mb={2}>      
           <TextField
             name="cafeName"
@@ -134,8 +134,7 @@ function EmployeePage() {
             }}
             margin="normal"
             size="small"    
-          />     
-          
+          />         
         <Button variant="contained" onClick={handleEditClick}>Add New Employee</Button>
       </Box>
 

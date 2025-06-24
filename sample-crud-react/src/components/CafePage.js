@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AgGridReact } from 'ag-grid-react';
-import { Box, Button, Typography, IconButton, Tooltip ,Snackbar, Alert, TextField} from '@mui/material';
+import {Box, Button, Typography, IconButton, Tooltip ,Snackbar, Alert, TextField} from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ConfirmDialog from './common/ConfirmDialog';
 import CafeDialog from './common/CafeDialog';
+import NavigationTabs from './common/NavigationTabs'
 import { provideGlobalGridOptions } from 'ag-grid-community';
 import { getCafes, deleteCafe } from '../services/api';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 // Mark all grids as using legacy themes
 provideGlobalGridOptions({ theme: "legacy" });
+
+//const pages = ['Cafes', 'Employees'];
 
 function CafePage() {
   const [cafes, setCafes] = useState([]);
@@ -20,10 +24,11 @@ function CafePage() {
   const [selectedCafe, setSelectedCafe] = useState(null);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
-  const navigate = useNavigate();
-const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+  const navigate = useNavigate(); 
+
   useEffect(() => {
-    fetchCafes();
+    fetchCafes();   
   }, []);
 
   const fetchCafes = async () => {
@@ -132,8 +137,8 @@ const [searchValue, setSearchValue] = useState('');
 
   return (
     <Box>
-      <Typography variant="h4" gutterBottom>Cafes</Typography>
-     
+      <NavigationTabs></NavigationTabs>   
+      <Typography variant="h4" gutterBottom>Cafes</Typography>     
        <Box display="flex" justifyContent="space-between" alignItems="center" gap={2} mb={2}>
           <TextField
             name="location"
@@ -147,8 +152,6 @@ const [searchValue, setSearchValue] = useState('');
             margin="normal"
             size="small"           
             />              
-        
-       
           <Button variant="contained" color="primary" onClick={handleEditClick} sx={{ mb: 2 }}>
             Add New Cafe
           </Button>
@@ -161,7 +164,7 @@ const [searchValue, setSearchValue] = useState('');
         open={confirmDialog}
         onClose={() => setConfirmDialog(false)}
         onConfirm={handleDelete}
-        title="Delete Cafe"
+        title="Delete Café"
         message="Are you sure you want to delete this cafe?"
       />
       <CafeDialog
