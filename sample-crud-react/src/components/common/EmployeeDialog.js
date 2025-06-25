@@ -13,6 +13,7 @@ import ReusableTextField from './ReusableTextField';
 import { getCafes, saveEmployee } from '../../services/api';
 import {validateEmail, validatePhone } from '../../utils/validation';
 import dayjs from 'dayjs';
+// Default empty form structure
 const defaultForm = {
   id: '',
   name: '',
@@ -24,33 +25,45 @@ const defaultForm = {
 };
 
 function EmployeeDialog({ open, onClose, formData = {}, onSave }) {
+  // Local state for form fields and errors
   const [form, setForm] = useState({ ...defaultForm });
   const [errors, setErrors] = useState({});
   const [cafes, setCafes] = useState([]);
 
+  // Load cafes and initialize form when formData changes
   useEffect(() => {
+    // Fetch cafe options for dropdown
     getCafes().then((res) => setCafes(res.data)).catch(() => setCafes([]));
+
+    // Prepare form for edit or create
     const preparedForm = {
       ...defaultForm,
       ...formData,
-      employmentDate: (formData!==null && formData.employmentDate) ? dayjs(formData.employmentDate) : null
+      employmentDate: (formData !== null && formData.employmentDate)
+        ? dayjs(formData.employmentDate)
+        : null
     };
+
     setForm(preparedForm);
-   
-     const newErrors = {};
-    setErrors(newErrors);
+    setErrors({}); // Clear previous errors
   }, [formData]);
 
+  // Handle input changes
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+    // Clear error for the field being modified
     if (value?.trim()) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
- const handleDateChange = (newDate) => {
+
+  // Handle date selection change
+  const handleDateChange = (newDate) => {
     setForm((prev) => ({ ...prev, employmentDate: newDate }));
   };
+
+  // Validate form fields before submission
   const validateForm = () => {
     const newErrors = {};
     if (!form.name?.trim()) newErrors.name = 'Please enter name';
@@ -59,33 +72,42 @@ function EmployeeDialog({ open, onClose, formData = {}, onSave }) {
     if (!form.gender?.trim()) newErrors.gender = 'Please select gender';
     if (!validateEmail(form.emailAddress)) newErrors.emailAddress = 'Please enter valid email';
     if (!validatePhone(form.phoneNumber)) newErrors.phoneNumber = 'Phone number must start with 8 or 9 and contain 8 digits';
+
     // if (form.cafeId && (!form.employmentDate || !dayjs(form.employmentDate).isValid())) {
     //   newErrors.employmentDate = 'Please select employment start date';
     // }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
+  // Save or update employee data
   const handleSubmit = async () => {
     if (!validateForm()) return;
-    
-       const inputForm = {
-        name: form.name?.trim() || '',
-        emailAddress: form.emailAddress?.trim() || '',
-        phoneNumber: form.phoneNumber?.trim() || '',
-        gender: form.gender?.trim() || '',
-        cafeId:form.cafeId?.trim() || '',
-        employmentDate:form.employmentDate!==null && form.employmentDate.isValid() ? form.employmentDate.toISOString() : null,
-        ...(form.id && { id: form.id })
+
+    // Prepare final payload for submission
+    const inputForm = {
+      name: form.name?.trim() || '',
+      emailAddress: form.emailAddress?.trim() || '',
+      phoneNumber: form.phoneNumber?.trim() || '',
+      gender: form.gender?.trim() || '',
+      cafeId: form.cafeId?.trim() || '',
+      employmentDate:
+        form.employmentDate !== null && form.employmentDate.isValid()
+          ? form.employmentDate.toISOString()
+          : null,
+      ...(form.id && { id: form.id }) 
     };
 
-    try {          
+    try {
       const res = await saveEmployee(inputForm);
-      if (res?.data.status==='success') {        
-        onSave?.();
-        onClose();
-      }else {
-         alert(res?.data.message);
+      if (res?.data.status === 'success') {
+        // Notify employee page to refresh and close dialog
+        onSave?.();  
+        onClose();   
+      } else {
+        // Show error message
+        alert(res?.data.message);  
       }
     } catch (error) {
       console.error(error);

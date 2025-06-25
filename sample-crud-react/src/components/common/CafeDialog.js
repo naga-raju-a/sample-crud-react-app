@@ -5,20 +5,25 @@ import {
 import ReusableTextField from './ReusableTextField';
 import { saveCafe } from '../../services/api';
 import { validateName, validateDescription } from '../../utils/validation';
+
+// Default empty form structure
 const defaultForm = {
   name: '', description: '', location: '', logo: ''
 };
 
 function CafeDialog({ open, onClose, formData = {}, onSave }) {
+  // Local state for form fields and errors
   const [form, setForm] = useState({ ...defaultForm });
   const [errors, setErrors] = useState({}); 
 
+  //initialize or update form data whenever formData changes
   useEffect(() => {
     setForm({ ...defaultForm, ...formData });   
      const newErrors = {};
-    setErrors(newErrors);
+    setErrors(newErrors); // Clear existing errors
   }, [formData]);
 
+  // Handle input changes
   const handleOnChange = (e) => {
     if (!e?.target?.name) return;
     const { name, value } = e.target;
@@ -27,7 +32,7 @@ function CafeDialog({ open, onClose, formData = {}, onSave }) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
-
+ // Validate form fields before submission
   const validateForm = () => {
     const newErrors = {};
     if (!form.name?.trim()){ 
@@ -40,9 +45,10 @@ function CafeDialog({ open, onClose, formData = {}, onSave }) {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+  // Save or update cafe data
   const handleSubmit = async () => {
     if (!validateForm()) return;
+    // Prepare final payload for submission
     const inputForm = {
     name: form.name?.trim() || '',
     description: form.description?.trim() || '',
@@ -53,10 +59,12 @@ function CafeDialog({ open, onClose, formData = {}, onSave }) {
     try {
     
       const res = await saveCafe(inputForm);
-      if (res?.data.status==='success') {        
+     if (res?.data.status==='success') {      
+        // Notify cafe page to refresh and close dialog  
         onSave?.();
         onClose();
       }else {
+         // Show error message
          alert(res?.data.message);
       }
     } catch (error) {

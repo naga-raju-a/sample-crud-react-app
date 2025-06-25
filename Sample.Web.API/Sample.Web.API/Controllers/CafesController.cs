@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Sample.Web.API.Data;
 using Sample.Web.API.Models;
 using Sample.Web.API.Services;
 
@@ -21,11 +22,16 @@ namespace Sample.Web.API.Controllers
             _context = context;
         }
 
-        // GET: api/Cafes
+        /// <summary>
+        /// Gets all cafes along with their employee count.
+        /// Seeds sample data if not already present.
+        /// </summary>
+        /// <returns>List of cafes with details.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cafe>>> GetCafe()
         {
-            
+            DataRepository.SeedData(_context); // Ensures data is loaded if not exists
+
             var cafes = await _context.Cafe.ToListAsync();
             var employees = await _context.Employee.ToListAsync();
             var result = cafes.Select(c => new
@@ -38,12 +44,16 @@ namespace Sample.Web.API.Controllers
                 EmployeeCount = employees
                     .Where(e => !string.IsNullOrEmpty(e.CafeId) && Guid.Parse(e.CafeId) == c.Id)
                     .Count()
-                    });
+            }).OrderByDescending(c =>c.EmployeeCount);
             return Ok(result);
-           
+
         }
 
-        // GET: api/Cafes/5
+        /// <summary>
+        /// Gets a specific cafe by its unique Guid.
+        /// </summary>
+        /// <param name="id">Cafe ID</param>
+        /// <returns>Cafe details if found</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Cafe>> GetCafe(Guid id)
         {
@@ -57,67 +67,80 @@ namespace Sample.Web.API.Controllers
             return cafe;
         }
 
-         // PUT: api/Cafes/5     
- [HttpPut("{id}")]
- public async Task<IActionResult> PutCafe(Guid id, Cafe cafe)
- {
-     if (id != cafe.Id)
-     {
-         return BadRequest();
-     }
+        /// <summary>
+        /// Updates a cafe record by Id.
+        /// </summary>
+        /// <param name="id">Cafe ID</param>
+        /// <param name="cafe">Cafe object to update</param>
+        /// <returns>Status of the update operation</returns>
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutCafe(Guid id, Cafe cafe)
+        {
+            if (id != cafe.Id)
+            {
+                return BadRequest();
+            }
 
-     _context.Entry(cafe).State = EntityState.Modified;
+            _context.Entry(cafe).State = EntityState.Modified;
 
-     try
-     {
-         await _context.SaveChangesAsync();
-         return CreatedAtAction(nameof(GetCafe), new { id = cafe.Id }, new
-         {
-             status = "success",
-             message = "Cafe updated successfully.",
-             data = cafe
-         });
-     }
-     catch (DbUpdateConcurrencyException ex)
-     {
-         return StatusCode(StatusCodes.Status500InternalServerError, new
-         {
-             status = "error",
-             message = "An error occurred while updating cafe data.",
-             details = ex.Message,
-             data = cafe
-         });
-     }
- }
+            try
+            {
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetCafe), new { id = cafe.Id }, new
+                {
+                    status = "success",
+                    message = "Cafe updated successfully.",
+                    data = cafe
+                });
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    status = "error",
+                    message = "An error occurred while updating cafe data.",
+                    details = ex.Message,
+                    data = cafe
+                });
+            }
+        }
 
- // POST: api/Cafes       
- [HttpPost]
- public async Task<ActionResult<Cafe>> PostCafe(Cafe cafe)
- {
-     try
-     {
-         _context.Cafe.Add(cafe);
-         await _context.SaveChangesAsync();
-         return CreatedAtAction(nameof(GetCafe), new { id = cafe.Id }, new
-         {
-             status = "success",
-             message = "Cafe updated successfully.",
-             data = cafe
-         });
-     }
-     catch (DbUpdateConcurrencyException ex) {
-         return StatusCode(StatusCodes.Status500InternalServerError, new
-         {
-             status = "error",
-             message = "An error occurred while saving cafe data.",
-             details = ex.Message,
-             data = cafe
-         });
-     }
- }
+        /// <summary>
+        /// Adds a new cafe to the database.
+        /// </summary>
+        /// <param name="cafe">New cafe object</param>
+        /// <returns>Result of creation operation</returns>
+        [HttpPost]
+        public async Task<ActionResult<Cafe>> PostCafe(Cafe cafe)
+        {
+            try
+            {
+                _context.Cafe.Add(cafe);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetCafe), new { id = cafe.Id }, new
+                {
+                    status = "success",
+                    message = "Cafe updated successfully.",
+                    data = cafe
+                });
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    status = "error",
+                    message = "An error occurred while saving cafe data.",
+                    details = ex.Message,
+                    data = cafe
+                });
+            }
+        }
 
-
-        // DELETE: api/Cafes/5
+        /// <summary>
+        /// Deletes an cafe by ID.
+        /// </summary>
+        /// <param name="id">cafe ID</param>
+        /// <returns>Status of the delete operation</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCafe(Guid id)
         {
